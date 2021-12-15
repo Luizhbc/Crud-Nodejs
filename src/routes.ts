@@ -1,8 +1,11 @@
 import { Router } from "express";
 import { CreateCategoryController } from "./controllers/CreateCategoryController";
+import { CreateVideoController } from "./controllers/CreateVideoControlller";
 import { DeleteCategoryController } from "./controllers/DeleteCategoryController";
 import { GetallCategoriesController } from "./controllers/GetAllCategoryController";
+import { GetAllVideosController } from "./controllers/GetAllVideosController";
 import { UpdateCategoryController } from "./controllers/UpdateCategoryController";
+import { CreateVideoService } from "./services/CreateVideoService";
 import { GetallCategoriesService } from "./services/GetAllCategoryService";
 
 const routes = Router();
@@ -11,5 +14,8 @@ routes.post("/categories", new CreateCategoryController().handle);
 routes.get("/categories", new GetallCategoriesController().handle);
 routes.delete("/categories/:id", new DeleteCategoryController().handle)
 routes.put("/categories/:id", new UpdateCategoryController().handle)
+
+routes.post("/video", new CreateVideoController().handle);
+routes.get("/video", new GetAllVideosController().handle)
 
 export{routes}

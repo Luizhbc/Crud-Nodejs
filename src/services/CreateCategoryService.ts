@@ -6,7 +6,7 @@ type CategoryRequest = {
   description: string;
 }
 export class CreateCategoryService{async execute({name, 
-    description}: CategoryRequest): Promise<Category> {
+    description}: CategoryRequest): Promise<Error |Category> {
     const repo = getRepository(Category);
     
     if(await repo.findOne({ name }))

@@ -11,6 +11,7 @@ type CategoryUpdateRequest = {
 export class UpdateCategoryService {
 async execute({id,name,description}: CategoryUpdateRequest){
   const repo = getRepository(Category);
+
   const category = await repo.findOne(id);
 
   if (!category){
@@ -18,7 +19,7 @@ async execute({id,name,description}: CategoryUpdateRequest){
   }
 
   category.name = name ? name : category.name;
-  category.description = description? description: category.description;
+  category.description = description ? description : category.description;
 
   await repo.save(category);
   return category;
